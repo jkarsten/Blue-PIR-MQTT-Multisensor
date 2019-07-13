@@ -18,9 +18,8 @@ void NeoPixelLoop() {
     else {
       NeoPixelOff();
     }
-  }
-
-}
+  } // if (currentMillis - neoPixeltimerMillis >= neoPixeltimer || currentMillis < neoPixeltimerMillis)
+} // void NeoPixelLoop()
 
 // ----------------------------------------------
 //  Off

@@ -17,7 +17,7 @@ void setup_wifi() {
   Serial.print("Connecting to ");
   Serial.println(ssid);
   neoPixelbrightness = 200;
-  neoPixelPriColor = 0x1E1EF0;
+  neoPixelPriColor = 0x001E00;
   neoPixelModus = 3;
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {

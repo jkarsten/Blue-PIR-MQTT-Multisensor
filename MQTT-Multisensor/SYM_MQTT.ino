@@ -13,6 +13,7 @@ void MQTTLoop() {
 // ------------------------------------------------------------------------------------------
 
 void reconnect_mqtt() {
+
   neoPixelbrightness = 50;
   neoPixelPriColor = 0x1E001E;
   neoPixelModus = 1;
@@ -24,8 +25,6 @@ void reconnect_mqtt() {
     // Attempt to connect
     if (client.connect(mqtt_name, mqtt_user, mqtt_pass)) {
       Serial.println("connected");
-      //client.subscribe("/BZamp/Volume");
-      //client.subscribe("/BZamp/Mute");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());

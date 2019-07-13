@@ -26,9 +26,13 @@ const char* mqtt_server     = "mqtt.server.net";
 const char* mqtt_name       = "ESP-WZMultiSensor";
 const char* mqtt_user       = "user";
 const char* mqtt_pass       = "pass";
-const char* mqtt_Pubtopic   = "/WZ/ESP-WZMultiSensor/";
-char TopicBuf[30];
 
+#define topicTemperature  "/WZ/ESP-WZMultiSensor/Temp"
+#define topicHumidity     "/WZ/ESP-WZMultiSensor/Huma"
+#define topicLight        "/WZ/ESP-WZMultiSensor/Light"
+#define topicMotion       "/WZ/ESP-WZMultiSensor/Motion"
+
+char TopicBuf[30];
 PubSubClient client(espClient);
 
 // ----------------------------------------------
@@ -42,6 +46,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(16, neoPixelPIN);
 int       neoPixelModus       = 0;
 uint32_t  neoPixelPriColor    = 0x1E1EF0;
 byte      neoPixelbrightness  = 100;
+
 
 // ----------------------------------------------
 //  PIR-Motionsenor
@@ -61,7 +66,7 @@ float varT      = 0;    // Temperatur
 float varHIC    = 0;    // Temperaturindex
 #define DHTtimer 5000
 unsigned long DHTtimerMillis = 0;
-float DHToffset   = -7.5;
+float DHToffset   = -6.5;
 
 // ----------------------------------------------
 // LDR - Lightsensor
@@ -101,9 +106,9 @@ void loop() {
   WIFILoop();
   MQTTLoop();
 
-  NeoPixelLoop();
   MotionLoop();
   DHTLoop();
   LightLoop();
 
+  NeoPixelLoop();
 }

@@ -17,9 +17,6 @@ void DHTLoop() {
 
 void read_temperature() {
 
-  const char* topicT = "Temp";
-  const char* topicH = "Huma";
-
   float varHread   = 0;    // Luftfeuchtigkeit
   float varTread   = 0;    // Temperatur
   float varHICread = 0;    // Temperaturindex
@@ -33,19 +30,15 @@ void read_temperature() {
   } else {
     if (varH - varHread <= -0.5 || varH - varHread >= 0.5) {
       varH = varHread;
-      strcpy(TopicBuf, mqtt_Pubtopic);
-      strcat(TopicBuf, topicH);
-      client.publish(TopicBuf, String(varH, 1).c_str());
-//      Serial.print("Read Humidity from ");
-//      Serial.println(varH);
+      client.publish(topicHumidity, String(varH, 1).c_str());
+      //      Serial.print("Read Humidity from ");
+      //      Serial.println(varH);
     }
     if (varT - varTread <= -0.2 || varT - varTread >= 0.2) {
       varT = varTread;
-      strcpy(TopicBuf, mqtt_Pubtopic);
-      strcat(TopicBuf, topicT);      
-      client.publish(TopicBuf, String(varT + DHToffset, 1).c_str());
-//      Serial.print("Read Temperature from ");
-//      Serial.println(varT + DHToffset);
+      client.publish(topicTemperature, String(varT + DHToffset, 1).c_str());
+      //      Serial.print("Read Temperature from ");
+      //      Serial.println(varT + DHToffset);
     }
     varHICread = dht.computeHeatIndex(varTread, varHread, false);
     if (varHIC - varHICread <= -0.2 || varHIC - varHICread >= 0.2) {
