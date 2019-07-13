@@ -10,7 +10,5 @@ A building instruction is on my Website https://blue-pc.net/2019/05/06/blue-pir-
 It is only in German but with many images.
 
 I use this Sensor with Mosquitto and openHAB. It works very good and stable.
-
-openHAB MQTT Binding: https://www.openhab.org/addons/bindings/mqtt/
-
-Mosquitto: https://mosquitto.org/
+- openHAB MQTT Binding: https://www.openhab.org/addons/bindings/mqtt/
+- Mosquitto: https://mosquitto.org/
