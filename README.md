@@ -8,3 +8,7 @@ This is a motion detection and multisensor device I've created. Built with an ES
 You can find the 3D STL Files on Thingiverse https://www.thingiverse.com/thing:3611186 
 A building instruction is on my Website https://blue-pc.net/2019/05/06/blue-pir-mqtt-bewegunsmelder/
 It is only in German but with many images.
+
+I use this Sensor with Mosquitto and openHAB. It works very good and stable.
+openHAB MQTT Binding: https://www.openhab.org/addons/bindings/mqtt/
+Mosquitto: https://mosquitto.org/
